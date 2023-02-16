@@ -7,7 +7,7 @@ import requests
 def home(request):
     return render(request, 'home.html')
 
-def obtener_info_bike_santiago():
+def get_info_bikeSantiago():
     url = 'http://api.citybik.es/v2/networks/bikesantiago'
     respuesta = requests.get(url)
     if respuesta.status_code == 200:
@@ -42,7 +42,7 @@ def obtener_info_bike_santiago():
 
 def guardar_info_bikeSantiago():
     # Obtener información de Bike Santiago desde la API
-    bike_santiago = obtener_info_bike_santiago()
+    bike_santiago = get_info_bikeSantiago()
 
     # Si se obtuvo la información correctamente, guardarla en el modelo
     if bike_santiago is not None:
