@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1>Bike Santiago</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Información general</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Nombre</th>
+            <td>{{ bike_santiago.name }}</td>
+          </tr>
+          <tr>
+            <th>País</th>
+            <td>{{ bike_santiago.country }}</td>
+          </tr>
+          <tr>
+            <th>Ciudad</th>
+            <td>{{ bike_santiago.city }}</td>
+          </tr>
+          <tr>
+            <th>Latitud</th>
+            <td>{{ bike_santiago.latitude }}</td>
+          </tr>
+          <tr>
+            <th>Longitud</th>
+            <td>{{ bike_santiago.longitude }}</td>
+          </tr>
+          <tr>
+            <th>Estaciones</th>
+            <td>{{ bike_santiago.stations }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h2>Estaciones de bicicletas</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Bicicletas disponibles</th>
+            <th>Espacios disponibles</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for estacion in estaciones %}
+          <tr>
+            <td>{{ estacion.name }}</td>
+            <td>{{ estacion.city }}, {{ estacion.country }}</td>
+            <td>{{ estacion.free_bikes }}</td>
+            <td>{{ estacion.empty_slots }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Bike Santiago</title>
+</head>
+<body>
+    <h1>Actualizar Bike Santiago</h1>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+    <form action="{% url 'actualizar_bike_santiago' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Actualizar información</button>
+    </form>
+</body>
+</html>
